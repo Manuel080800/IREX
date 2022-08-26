@@ -39,4 +39,4 @@ You can also run IREX virtually using Google Colab.
 
 At the following link, you will be redirected to a ready-made Jupyter Notebook for immediate execution.
 
-[IREX - Google Colab](https://colab.research.google.com/drive/1FSHvWlAqARQ5ec69kKSRSLZXaMbMzz67?usp=sharing)
+[IREX - Google Colab](https://colab.research.google.com/drive/1IhmBtRnstL8SthhkECfydPOFuS5jxgLi?usp=sharing)
