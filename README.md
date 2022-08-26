@@ -1,11 +1,12 @@
 # IREX
-A reusable process for the iterative refinement and explanation of classification models.
+A Reusable process for the **I**terative **R**efinement and **EX**planation of classification models.
 
-## Installation requirements of necessary modules
-### Operating environment
-It uses implementor modules with Python version 3.1 onwards.
-### Necessary modules
-This requires the following 13 modules:
+## Installation of necessary modules
+Can be installed through the **"requirements.txt"** file using the command:
+```
+pip install -r requirements.txt
+```
+This will install the following 13 modules:
 - joblib
 - dice-ml
 - shap
@@ -20,29 +21,23 @@ This requires the following 13 modules:
 - imblearn
 - alibi
 
-Which can be installed through the **requirements.txt** file using the command:
-```
-pip install -r requirements.txt
-```
 
 ## Repository content
 It has the following directories:
 
 - IREX - Jupyter Notebook: This stores a running jupyter notebook.
-- IREX - Script: this has two more subdirectories.
-  - No graphics: this stores a script that does not save the displayed graphics.
-  - With graphics: this stores a script that saves the displayed graphics.
+- IREX - Script: This stores a script that saves the displayed graphics.
   
   
-All these with their respective execution data.
+Both of them with their respective execution instructions.
  
 ## Local execution
-It is recommended to run the Jupyter Notebook through Jupiter Notebook or Jupiter Lab, for the script it is recommended to use Spyder or Pychar.
+It's recommended to run the ".ipynb" file through Jupiter Notebook or Jupiter Lab, for the script it's recommended to use Spyder or Pychar.
 
 ## Virtual execution
 
-You can also run it virtually using the Google Colab tool.
+You can also run IREX virtually using the Google Colab tool.
 
-At the following link below, you will be redirected to a ready-made Jupyter Notebook for immediate execution.
+At the following link, you will be redirected to a ready-made Jupyter Notebook for immediate execution.
 
 [IREX - Google Colab](https://colab.research.google.com/drive/1FSHvWlAqARQ5ec69kKSRSLZXaMbMzz67?usp=sharing)
