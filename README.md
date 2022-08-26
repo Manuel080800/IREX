@@ -43,4 +43,6 @@ At the following link, you will be redirected to a ready-made Jupyter Notebook f
 
 ## Video demo
 
+Here, at the link bellow, you can find a video demo of IREX
+
 [IREX - Video demo](https://aaaimx.org/irex/)
