@@ -25,19 +25,18 @@ This will install the following 13 modules:
 ## Repository content
 It has the following directories:
 
-- IREX - Jupyter Notebook: This stores a running jupyter notebook.
-- IREX - Script: This stores a script that saves the displayed graphics.
+- IREX - Jupyter Notebook: This stores the jupyter notebook.
+- IREX - Script: This stores the script.
   
   
 Both of them with their respective execution instructions.
  
 ## Local execution
-It's recommended to run the ".ipynb" file through Jupiter Notebook or Jupiter Lab, for the script it's recommended to use Spyder or Pychar.
-
+It's recommended to run the script in either Spyder or Pychar.
 ## Virtual execution
 
-You can also run IREX virtually using the Google Colab tool.
+You can also run IREX virtually using Google Colab.
 
 At the following link, you will be redirected to a ready-made Jupyter Notebook for immediate execution.
 
-[IREX - Google Colab](https://colab.research.google.com/drive/1FSHvWlAqARQ5ec69kKSRSLZXaMbMzz67?usp=sharing)
+[IREX - Google Colab](https://colab.research.google.com/drive/1IhmBtRnstL8SthhkECfydPOFuS5jxgLi?usp=sharing)
