@@ -197,7 +197,7 @@ def configParameters():
     parameters['regul_param_normal'] = 10.0 ** - np.arange(-2, 7)
     parameters['regul_param_alpha'] = 10.0 ** - np.arange(0, 7)
 
-    ## The alpha, random state and learning rate init training parameters
+    ## The alpha, random state and learning rate training parameters
     ## are defined for each iteration.
     parameters['learning_rate_init'] = 0.1
     parameters['random_state'] = 42
@@ -708,24 +708,24 @@ def explain(data, model, config, expertKnowledge):
                     cmap="Blues", yticklabels = True, xticklabels = True,
                     mask = df_mask.to_numpy())
         plt.savefig(config['name_class'][iterable_class] +
-              " Important Variable heat map - Initial.jpg",
+              " Important Variable heatmap - Initial.jpg",
                     bbox_inches='tight')
         plt.show()
         print()
 
-    ## Merging of the all classes' heatmaps into one.
+    ## Merging of all the classes' heatmaps into one.
 
     ## Fusion of the previous heatmaps.
     df_importance = pd.concat(map_class, axis=1)
     df_importance.columns = config['name_class']
 
     ## Generation of the heatmap.
-    print("Generation of the heat map of Important Variable of all classes.")
+    print("Generation of the heatmap of Important Variable of all classes.")
     plt.figure(figsize = (32,6))
     sns.heatmap(df_importance.transpose(), cmap = "Reds", cbar = False)
     sns.heatmap(df_importance.transpose(), cmap = "Blues", yticklabels = True,
                 xticklabels = True ,mask = df_mask_imp.to_numpy())
-    plt.savefig("All classes of Important Variable heat map - Initial.jpg",
+    plt.savefig("All classes of Important Variable heatmap - Initial.jpg",
                 bbox_inches='tight')
     plt.show()
     print()
@@ -751,12 +751,12 @@ def explain(data, model, config, expertKnowledge):
 
         ## Generation of the heatmap.
         print(config['name_class'][iterable_class] +
-              " SHAP heat map generation.")
+              " SHAP heatmap generation.")
         plt.figure(figsize = (28,14))
         sns.heatmap(df_shap, cmap="vlag_r", yticklabels=True,
                     xticklabels=True, center = 0)
         plt.savefig(config['name_class'][iterable_class] +
-              " SHAP heat map - Initial.jpg",
+              " SHAP heatmap - Initial.jpg",
                     bbox_inches='tight')
         plt.show()
         print()
@@ -769,7 +769,7 @@ def explain(data, model, config, expertKnowledge):
 
         ## Generation of the heatmap.
         print(config['name_class'][iterable_class] +
-              " SHAP average heat map generation.")
+              " SHAP average heatmap generation.")
         plt.figure(figsize = (28,6))
         sns.heatmap(map_class[iterable_class].transpose(), cmap="Reds",
                     cbar = False)
@@ -777,24 +777,24 @@ def explain(data, model, config, expertKnowledge):
                     yticklabels = True, xticklabels = True,
                     mask = df_mask.to_numpy())
         plt.savefig(config['name_class'][iterable_class] +
-              " SHAP average heat map - Initial.jpg",
+              " SHAP average heatmap - Initial.jpg",
                     bbox_inches='tight')
         plt.show()
         print()
 
-    ## Merging of the all class heatmaps into one map.
+    ## Merging of all the class heatmaps into one map.
 
     ## Fusion of the previous heatmaps.
     df_shap = pd.concat(map_class, axis=1)
     df_shap.columns = config['name_class']
 
     ## Generation of the heatmap.
-    print("Generation of the heat map of SHAP of all classes.")
+    print("Generation of the heatmap of SHAP of all classes.")
     plt.figure(figsize = (32,6))
     sns.heatmap(df_shap.transpose(), cmap="Reds", cbar = False)
     sns.heatmap(df_shap.transpose(), cmap="Blues", yticklabels = True,
                 xticklabels = True, mask = df_mask_imp.to_numpy())
-    plt.savefig("All classes of SHAP heat map - Initial.jpg",
+    plt.savefig("All classes of SHAP heatmap - Initial.jpg",
                 bbox_inches='tight')
     plt.show()
     print()
@@ -850,13 +850,13 @@ def explain(data, model, config, expertKnowledge):
 
     for iterable_class in range(0, len(config['name_class'])):
         print(config['name_class'][iterable_class] +
-              " LIME heat map generation.")
+              " LIME heatmap generation.")
         plt.figure(figsize = (28,14))
         lime_df = pd.DataFrame(exp_matrix[iterable_class])
         lime_df.columns = column_Map
         sns.heatmap(lime_df, cmap="vlag_r",yticklabels=True, xticklabels=True)
         plt.savefig(config['name_class'][iterable_class] +
-              " LIME heat map - Initial.jpg",
+              " LIME heatmap - Initial.jpg",
                     bbox_inches='tight')
         plt.show()
         print()
@@ -868,7 +868,7 @@ def explain(data, model, config, expertKnowledge):
         map_class.append(lime_df_mean)
 
         print(config['name_class'][iterable_class] +
-              " LIME average heat map generation.")
+              " LIME average heatmap generation.")
         plt.figure(figsize = (32,6))
         sns.heatmap(map_class[iterable_class].transpose(), cmap="Reds",
                     cbar = False)
@@ -876,20 +876,20 @@ def explain(data, model, config, expertKnowledge):
                     yticklabels = True, xticklabels = True,
                     mask = df_mask.to_numpy())
         plt.savefig(config['name_class'][iterable_class] +
-              " LIME average heat map - Initial.jpg",
+              " LIME average heatmap - Initial.jpg",
                     bbox_inches='tight')
         plt.show()
         print()
 
     ## Merging of all the classes heatmaps into one map.
-    print("Generation of the heat map of LIME of all classes.")
+    print("Generation of the heatmap of LIME of all classes.")
     df_lime = pd.concat(map_class, axis=1)
     df_lime.columns = config['name_class']
     plt.figure(figsize = (32,6))
     sns.heatmap(df_lime.transpose(), cmap="Reds", cbar = False)
     sns.heatmap(df_lime.transpose(), cmap="Blues", yticklabels = True,
                 xticklabels = True, mask = df_mask_imp.to_numpy())
-    plt.savefig("All classes of LIME heat map - Initial.jpg",
+    plt.savefig("All classes of LIME heatmap - Initial.jpg",
                 bbox_inches='tight')
     plt.show()
     print()
@@ -911,7 +911,7 @@ def explain(data, model, config, expertKnowledge):
     map_class = []
 
     ## Obtaining the data for the generation of the explanations
-    ## by ALE about the all classes.
+    ## by ALE about all the classes.
 
     ## Local variables for ALE array data.
     ale_list = [[] for _ in range(len(config['name_class']))]
@@ -936,19 +936,19 @@ def explain(data, model, config, expertKnowledge):
         ale_df.columns = column_Map
         map_class.append(ale_df)
 
-    ## Explainability of the data by means of the heat map
-    ## of the all class.
+    ## Explainability of the data by means of the heatmap
+    ## of all the class.
 
-    ## Generation of the heat map.
+    ## Generation of the heatmap.
 
     for iterable_class in range(0, len(config['name_class'])):
         print(config['name_class'][iterable_class] +
-              " ALE heat map generation.")
+              " ALE heatmap generation.")
         plt.figure(figsize = (28,6))
         sns.heatmap(map_class[iterable_class], cmap="vlag_r",
                     yticklabels=True, xticklabels=True)
         plt.savefig(config['name_class'][iterable_class] +
-              " ALE heat map - Initial.jpg",
+              " ALE heatmap - Initial.jpg",
                     bbox_inches='tight')
         plt.show()
         print()
@@ -959,19 +959,19 @@ def explain(data, model, config, expertKnowledge):
     for index in range(0, len(map_class)):
         map_class [index] = map_class [index][0:1].abs()
 
-    ## Union of the heat maps of all the class.
+    ## Union of the heatmaps of all the class.
     ale_df = pd.concat(map_class)
     ale_df.index = config['name_class']
     ale_df = ale_df.transpose()
 
-    # Generation of the heat map.
+    # Generation of the heatmap.
 
-    print("Generation of the heat map of ALE of all classes.")
+    print("Generation of the heatmap of ALE of all classes.")
     plt.figure(figsize = (28,6))
     sns.heatmap(ale_df.transpose(), cmap="Reds", cbar = False)
     sns.heatmap(ale_df.transpose(), cmap="Blues", yticklabels = True,
                 xticklabels = True, mask= df_mask_imp.to_numpy())
-    plt.savefig("All classes of ALE heat map - Initial.jpg",
+    plt.savefig("All classes of ALE heatmap - Initial.jpg",
                 bbox_inches='tight')
     plt.show()
     print()
@@ -996,10 +996,10 @@ def explain(data, model, config, expertKnowledge):
         max_lime = df_lime[config['name_class'][iterable_class]].max()
         max_ale  = ale_df[config['name_class'][iterable_class]].max()
 
-        # A new heat map is created containing all the values of each
+        # A new heatmap is created containing all the values of each
         ## method used.
 
-        ## The values are calculated to plot the new heat map.
+        ## The values are calculated to plot the new heatmap.
         data_importance = df_importance[config['name_class'][iterable_class]
                                         ].multiply(100/max_importance)
         data_lime = df_lime[config['name_class'][iterable_class]
@@ -1016,8 +1016,8 @@ def explain(data, model, config, expertKnowledge):
         df_general.index = data['name_methods']
         df_general
 
-        # Generation of the heat map.
-        print("Generation of the heat map of all the comparison methods" +
+        # Generation of the heatmap.
+        print("Generation of the heatmap of all the comparison methods" +
               " of the " + config['name_class'][iterable_class] + ".")
         plt.figure(figsize = (28,8))
         sns.heatmap(df_general, cmap="Reds", cbar = False)
@@ -1649,8 +1649,8 @@ def explain(data, model, config, expertKnowledge):
         df_mask_all = pd.concat([df_mask, df_mask, df_mask, df_mask],
                                 ignore_index = True, axis = 0)
 
-        ## The heat map mask dataset is printed.
-        print("Heat map mask dataset.")
+        ## The heatmap mask dataset is printed.
+        print("heatmap mask dataset.")
         print(df_mask)
         print()
 
@@ -1669,7 +1669,7 @@ def explain(data, model, config, expertKnowledge):
             ## Explainability of the data by means of the heat-
             ## map of all the classes.
             print(config['name_class'][iterable_class] +
-                  " Important Variable heat map generation.")
+                  " Important Variable heatmap generation.")
             df_importance = explainer.permutation_importances(iterable_class
                                                               ).sort_index()
             df_importance.index = column_Map
@@ -1687,7 +1687,7 @@ def explain(data, model, config, expertKnowledge):
                         cmap="Blues", yticklabels = True, xticklabels = True,
                         mask = df_mask.to_numpy())
             plt.savefig(config['name_class'][iterable_class] +
-                  " Important Variable heat map - Iteration " +
+                  " Important Variable heatmap - Iteration " +
                   str(data['iteration']) + ".jpg",
                         bbox_inches='tight')
             plt.show()
@@ -1695,19 +1695,19 @@ def explain(data, model, config, expertKnowledge):
 
         ## Merging of all the classes heatmaps into one map.
 
-        ## Fusion of the previous heat maps.
+        ## Fusion of the previous heatmaps.
         df_importance = pd.concat(map_class, axis=1)
         df_importance.columns = config['name_class']
 
         ## Generation of the heatmap.
-        print("Generation of the heat map of Important Variable of" +
+        print("Generation of the heatmap of Important Variable of" +
               " all classes.")
         plt.figure(figsize = (32,6))
         sns.heatmap(df_importance.transpose(), cmap = "Reds", cbar = False)
         sns.heatmap(df_importance.transpose(), cmap = "Blues",
                     yticklabels = True, xticklabels = True ,
                     mask = df_mask_imp.to_numpy())
-        plt.savefig("All classes of Important Variable heat map - Iteration " +
+        plt.savefig("All classes of Important Variable heatmap - Iteration " +
         str(data['iteration']) + ".jpg",
                     bbox_inches='tight')
         plt.show()
@@ -1724,7 +1724,7 @@ def explain(data, model, config, expertKnowledge):
         ## Class index local variable.
         map_class = []
 
-        ## Explainability of the data by means of the heat map
+        ## Explainability of the data by means of the heatmap
         ## of all the classes.
 
         ## Definition of explainability data.
@@ -1733,14 +1733,14 @@ def explain(data, model, config, expertKnowledge):
             df_shap = explainer.get_shap_values_df(iterable_class)
             df_shap.columns = column_Map
 
-            ## Generation of the heat map.
+            ## Generation of the heatmap.
             print(config['name_class'][iterable_class] +
-                  " SHAP heat map generation.")
+                  " SHAP heatmap generation.")
             plt.figure(figsize = (28,14))
             sns.heatmap(df_shap, cmap="vlag_r", yticklabels=True,
                         xticklabels=True, center = 0)
             plt.savefig(config['name_class'][iterable_class] +
-                  " SHAP heat map - Iteration " + 
+                  " SHAP heatmap - Iteration " + 
                   str(data['iteration']) + ".jpg",
                         bbox_inches='tight')
             plt.show()
@@ -1754,7 +1754,7 @@ def explain(data, model, config, expertKnowledge):
 
             ## Generation of the heatmap.
             print(config['name_class'][iterable_class] +
-                  " SHAP average heat map generation.")
+                  " SHAP average heatmap generation.")
             plt.figure(figsize = (28,6))
             sns.heatmap(map_class[iterable_class].transpose(), cmap="Reds",
                         cbar = False)
@@ -1762,7 +1762,7 @@ def explain(data, model, config, expertKnowledge):
                         yticklabels = True, xticklabels = True,
                         mask = df_mask.to_numpy())
             plt.savefig(config['name_class'][iterable_class] +
-                  " SHAP average heat map - Iteration " +
+                  " SHAP average heatmap - Iteration " +
                   str(data['iteration']) + ".jpg",
                         bbox_inches='tight')
             plt.show()
@@ -1770,17 +1770,17 @@ def explain(data, model, config, expertKnowledge):
 
         ## Merging of all the classes heatmaps into one map.
 
-        ## Fusion of the previous heat maps.
+        ## Fusion of the previous heatmaps.
         df_shap = pd.concat(map_class, axis=1)
         df_shap.columns = config['name_class']
 
         ## Generation of the heatmap.
-        print("Generation of the heat map of SHAP of all classes.")
+        print("Generation of the heatmap of SHAP of all classes.")
         plt.figure(figsize = (32,6))
         sns.heatmap(df_shap.transpose(), cmap="Reds", cbar = False)
         sns.heatmap(df_shap.transpose(), cmap="Blues", yticklabels = True,
                     xticklabels = True, mask = df_mask_imp.to_numpy())
-        plt.savefig("All classes of SHAP heat map - Iteration " + 
+        plt.savefig("All classes of SHAP heatmap - Iteration " + 
                     str(data['iteration']) + ".jpg",
                     bbox_inches='tight')
         plt.show()
@@ -1830,21 +1830,21 @@ def explain(data, model, config, expertKnowledge):
 
                 exp_matrix[elements].append(exp_list[elements])
 
-        ## Explainability of the data by means of the heat map of
+        ## Explainability of the data by means of the heatmap of
         ## all the classes.
 
         # Generation of the heatmap.
 
         for iterable_class in range(0, len(config['name_class'])):
             print(config['name_class'][iterable_class] +
-                  " LIME heat map generation.")
+                  " LIME heatmap generation.")
             plt.figure(figsize = (28,14))
             lime_df = pd.DataFrame(exp_matrix[iterable_class])
             lime_df.columns = column_Map
             sns.heatmap(lime_df, cmap="vlag_r",yticklabels=True,
                         xticklabels=True)
             plt.savefig(config['name_class'][iterable_class] +
-                  " LIME heat map - Iteration " + 
+                  " LIME heatmap - Iteration " + 
                   str(data['iteration']) + ".jpg",
                         bbox_inches='tight')
             plt.show()
@@ -1857,7 +1857,7 @@ def explain(data, model, config, expertKnowledge):
             map_class.append(lime_df_mean)
 
             print(config['name_class'][iterable_class] +
-                  " LIME average heat map generation.")
+                  " LIME average heatmap generation.")
             plt.figure(figsize = (32,6))
             sns.heatmap(map_class[iterable_class].transpose(), cmap="Reds",
                         cbar = False)
@@ -1865,21 +1865,21 @@ def explain(data, model, config, expertKnowledge):
                         yticklabels = True, xticklabels = True,
                         mask = df_mask.to_numpy())
             plt.savefig(config['name_class'][iterable_class] +
-                  " LIME average heat map - Iteration " + 
+                  " LIME average heatmap - Iteration " + 
                   str(data['iteration']) + ".jpg",
                         bbox_inches='tight')
             plt.show()
             print()
 
         ## Merging of all the classes heatmaps into one map.
-        print("Generation of the heat map of LIME of all classes.")
+        print("Generation of the heatmap of LIME of all classes.")
         df_lime = pd.concat(map_class, axis=1)
         df_lime.columns = config['name_class']
         plt.figure(figsize = (32,6))
         sns.heatmap(df_lime.transpose(), cmap="Reds", cbar = False)
         sns.heatmap(df_lime.transpose(), cmap="Blues", yticklabels = True,
                     xticklabels = True, mask = df_mask_imp.to_numpy())
-        plt.savefig("All classes of LIME heat map - Iteration " + 
+        plt.savefig("All classes of LIME heatmap - Iteration " + 
                     str(data['iteration']) + ".jpg",
                     bbox_inches='tight')
         plt.show()
@@ -1927,19 +1927,19 @@ def explain(data, model, config, expertKnowledge):
             ale_df.columns = column_Map
             map_class.append(ale_df)
 
-        ## Explainability of the data by means of the heat map
+        ## Explainability of the data by means of the heatmap
         ## of all the classes.
 
         ## Generation of the heatmap.
 
         for iterable_class in range(0, len(config['name_class'])):
             print(config['name_class'][iterable_class] +
-                  " ALE heat map generation.")
+                  " ALE heatmap generation.")
             plt.figure(figsize = (28,6))
             sns.heatmap(map_class[iterable_class], cmap="vlag_r",
                         yticklabels=True, xticklabels=True)
             plt.savefig(config['name_class'][iterable_class] +
-                  " ALE heat map - Iteration " + 
+                  " ALE heatmap - Iteration " + 
                   str(data['iteration']) + ".jpg",
                         bbox_inches='tight')
             plt.show()
@@ -1951,19 +1951,19 @@ def explain(data, model, config, expertKnowledge):
         for index in range(0, len(map_class)):
             map_class [index] = map_class [index][0:1].abs()
 
-        ## Union of the heat maps of the all class.
+        ## Union of the heatmaps of all the class.
         ale_df = pd.concat(map_class)
         ale_df.index = config['name_class']
         ale_df = ale_df.transpose()
 
         # Generation of the heatmap.
 
-        print("Generation of the heat map of ALE of all classes.")
+        print("Generation of the heatmap of ALE of all classes.")
         plt.figure(figsize = (28,6))
         sns.heatmap(ale_df.transpose(), cmap="Reds", cbar = False)
         sns.heatmap(ale_df.transpose(), cmap="Blues", yticklabels = True,
                     xticklabels = True, mask= df_mask_imp.to_numpy())
-        plt.savefig("All classes of ALE heat map - Iteration " + 
+        plt.savefig("All classes of ALE heatmap - Iteration " + 
                     str(data['iteration']) + ".jpg",
                     bbox_inches='tight')
         plt.show()
@@ -2009,8 +2009,8 @@ def explain(data, model, config, expertKnowledge):
             df_general.index = data['name_methods']
             df_general
 
-            # Generation of the heat map.
-            print("Generation of the heat map of all the comparison methods" +
+            # Generation of the heatmap.
+            print("Generation of the heatmap of all the comparison methods" +
                   " of the " + config['name_class'][iterable_class] + ".")
             plt.figure(figsize = (28,8))
             sns.heatmap(df_general, cmap="Reds", cbar = False)
