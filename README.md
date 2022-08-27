@@ -32,7 +32,7 @@ It has the following directories:
 Both of them with their respective execution instructions.
  
 ## Local execution
-It's recommended to run the script in either Spyder or Pychar.
+It's recommended to run the script in either Spyder or Pycharm.
 ## Virtual execution
 
 You can also run IREX virtually using Google Colab.
